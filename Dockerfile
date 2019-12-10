@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN apt-get update && apt-get upgrade
+RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install curl -y gcc -y autoconf -y make -y automake -y libpng-dev -y nasm -y git -y
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
