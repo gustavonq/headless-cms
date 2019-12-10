@@ -3,6 +3,8 @@ node {
     def dockerArgs = null
     def slackChannel = null
     def checkoutTagName = null
+    def APP_NAME = 'latam-cms'
+    def DOCKERFILE_NAME = 'Dockerfile'
     def gitlabBranch = 'master'
     def gitlabAfter = 'master'
     def gitlabActionType = 'TAG_PUSH_'
