@@ -1,12 +1,9 @@
-FROM ubuntu
+#FROM ubuntu
+FROM node:9.11.2-slim
 
 WORKDIR headless-cms
 COPY ./ /headless-cms/
 
-RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install curl
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get install nodejs -y
 RUN node -v && npm -v
 RUN npm install
 RUN npm run build
