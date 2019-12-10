@@ -3,6 +3,8 @@ node {
     def dockerArgs = null
     def slackChannel = null
     def checkoutTagName = null
+    def gitlabActionType = 'TAG_PUSH'
+    def gitlabBranch = 'master'
     
     try {
 
@@ -15,8 +17,7 @@ node {
         stage('Checkout') {
             if ("${gitlabActionType}" == "TAG_PUSH"){
                 checkout([$class: 'GitSCM',
-                    branches: [[name: "${gitlabBranch}"]],
-                    userRemoteConfigs: [[url: "${gitlabSourceRepoHttpUrl}", credentialsId: 'af913f96-7a89-4501-873d-1b3c63c5294b']]]
+                    branches: [[name: "${gitlabBranch}"]]
                 )
                 checkoutTagName = "${gitlabBranch}".replace("refs/tags/", "") 
                 println ("TAG NAME: " + checkoutTagName)
