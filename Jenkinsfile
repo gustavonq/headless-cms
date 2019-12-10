@@ -1,5 +1,17 @@
-pipeline {
-        agent none
+node {
+    def buildImage = null
+    def dockerArgs = null
+    def slackChannel = null
+    def checkoutTagName = null
+    
+    try {
+
+
+        if (env.DOCKER_ARGS) {
+            println ("${DOCKER_ARGS}")
+            dockerArgs = "${DOCKER_ARGS}".replace('\'', '').split(',')
+        }
+        
         stage('Checkout') {
             if ("${gitlabActionType}" == "TAG_PUSH"){
                 checkout([$class: 'GitSCM',
@@ -30,5 +42,13 @@ pipeline {
                 buildImage = docker.build("${APP_NAME}", " -f ${DOCKERFILE_NAME} .")
             }
         }
+
+    } catch (e) {
+        // If there was an exception thrown, the build failed
+        currentBuild.result = "FAILED"
+        throw e
+    } finally {
+
+    }
     
 }
