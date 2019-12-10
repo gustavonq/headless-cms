@@ -4,6 +4,7 @@ node {
     def slackChannel = null
     def checkoutTagName = null
     def gitlabBranch = 'master'
+    def gitlabAfter = 'master'
     def gitlabActionType = 'TAG_PUSH_'
     def gitlabSourceRepoHttpUrl = 'https://2a92f2776c319577df3c7d042f16c4f67509c8f4:x-oauth-basic@github.com/gustavonq/headless-cms.git'
     
@@ -25,7 +26,7 @@ node {
             }else{
                 checkout([$class: 'GitSCM',
                     branches: [[name: "${gitlabAfter}"]],
-                    userRemoteConfigs: [[url: "${gitlabSourceRepoHttpUrl}", credentialsId: 'af913f96-7a89-4501-873d-1b3c63c5294b']]]
+                    userRemoteConfigs: [[url: "${gitlabSourceRepoHttpUrl}"]]]
                 )
             }
         }
