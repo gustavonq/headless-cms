@@ -1,6 +1,13 @@
 FROM ubuntu
 
-RUN ls
+WORKDIR headless-cms
+COPY ./ /headless-cms/
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install nodejs -y
+RUN node -v && npm -v
+RUN npm install
+RUN npm run build
 
 #RUN apt-get update -y && apt-get upgrade -y
 #RUN apt-get install curl -y gcc -y autoconf -y make -y automake -y libpng-dev -y nasm -y git -y
