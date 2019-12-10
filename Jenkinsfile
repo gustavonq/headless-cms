@@ -17,7 +17,7 @@ node {
         stage('Checkout') {
             if ("${gitlabActionType}" == "TAG_PUSH"){
                 checkout([$class: 'GitSCM',
-                    branches: [[name: "${gitlabBranch}"]]
+                          branches: [[name: "${gitlabBranch}"]]]
                 )
                 checkoutTagName = "${gitlabBranch}".replace("refs/tags/", "") 
                 println ("TAG NAME: " + checkoutTagName)
