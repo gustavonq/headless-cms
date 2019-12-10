@@ -1,4 +1,4 @@
-node ("gcp") {
+pipeline {
     def buildImage = null
     def dockerArgs = null
     def slackChannel = null
@@ -47,10 +47,6 @@ node ("gcp") {
         // If there was an exception thrown, the build failed
         currentBuild.result = "FAILED"
         throw e
-    } finally {
-
-    }
-    
-    cleanWs()
+    } 
     
 }
