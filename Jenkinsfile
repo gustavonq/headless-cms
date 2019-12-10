@@ -3,8 +3,8 @@ node {
     def dockerArgs = null
     def slackChannel = null
     def checkoutTagName = null
-    def gitlabActionType = 'TAG_PUSH'
     def gitlabBranch = 'master'
+    def gitlabSourceRepoHttpUrl = 'https://2a92f2776c319577df3c7d042f16c4f67509c8f4:x-oauth-basic@github.com/gustavonq/headless-cms.git'
     
     try {
 
