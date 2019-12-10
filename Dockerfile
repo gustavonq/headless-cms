@@ -3,6 +3,7 @@ FROM ubuntu
 WORKDIR headless-cms
 COPY ./ /headless-cms/
 
+RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install curl
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install nodejs -y
