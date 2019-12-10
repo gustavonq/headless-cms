@@ -4,6 +4,7 @@ node {
     def slackChannel = null
     def checkoutTagName = null
     def gitlabBranch = 'master'
+    def gitlabActionType = 'TAG_PUSH_'
     def gitlabSourceRepoHttpUrl = 'https://2a92f2776c319577df3c7d042f16c4f67509c8f4:x-oauth-basic@github.com/gustavonq/headless-cms.git'
     
     try {
