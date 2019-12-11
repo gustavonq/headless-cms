@@ -47,6 +47,14 @@ node {
                 buildImage = docker.build("${APP_NAME}", " -f ${DOCKERFILE_NAME} .")
             }
         }
+        
+        stage ("Registry Image"){ 
+                    if (checkoutTagName){
+                        buildImage.push("${checkoutTagName}")
+                    }else{
+                        buildImage.push("gustavonq/strapi-test:" + "${gitlabAfter}")
+                    }
+        }
 
     } catch (e) {
         // If there was an exception thrown, the build failed
