@@ -1,5 +1,6 @@
 #FROM ubuntu
 FROM node:9.11.2-slim
+RUN apt-get gcc -y autoconf -y make -y automake -y libpng-dev -y nasm -y
 
 WORKDIR headless-cms
 COPY ./ /headless-cms/
@@ -19,8 +20,8 @@ RUN npm run build
 #RUN npm install
 #RUN npm run build
 
-#RUN npm install pm2 -g
-#WORKDIR /root
-#RUN pm2 init
+RUN npm install pm2 -g
+RUN pm2 init
+RUN pm2 start ecosystem.config.js
 #RUN mv /headless-cms/ecosystem.config.js /root
 #RUN pm2 start ecosystem.config.js
