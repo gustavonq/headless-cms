@@ -1,4 +1,4 @@
-FROM node:9.11.2-slim
+FROM node:latest
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install gcc -y autoconf -y make -y automake -y libpng-dev -y nasm -y
 
@@ -13,4 +13,6 @@ RUN npm run build
 
 #instalando e iniciando PM2 para gestão dos processos node
 RUN npm install pm2 -g
+WORKDIR /root
 RUN pm2 init
+RUN mv /headless-cms/ecosystem.config.js /root
