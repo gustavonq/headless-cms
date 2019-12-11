@@ -1,5 +1,6 @@
 #FROM ubuntu
 FROM node:9.11.2-slim
+RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install gcc -y autoconf -y make -y automake -y libpng-dev -y nasm -y
 
 WORKDIR headless-cms
