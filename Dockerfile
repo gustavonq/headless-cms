@@ -1,6 +1,6 @@
 #FROM ubuntu
 FROM node:9.11.2-slim
-RUN apt-get gcc -y autoconf -y make -y automake -y libpng-dev -y nasm -y
+RUN apt-get install gcc -y autoconf -y make -y automake -y libpng-dev -y nasm -y
 
 WORKDIR headless-cms
 COPY ./ /headless-cms/
