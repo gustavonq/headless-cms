@@ -2,14 +2,14 @@
   "defaultConnection": "default",
   "connections": {
     "default": {
-      "connector": "strapi-hook-mongoose",
+      "connector": "strapi-hook-bookshelf,
       "settings": {
         "host": "${process.env.DATABASE_HOST || '127.0.0.1'}",
-        "port": "${process.env.DATABASE_PORT || 27017}",
-        "srv": "${process.env.DATABASE_SRV || false}",
+        "port": "${process.env.DATABASE_PORT || 5432}",
+        "client": "${process.env.DATABASE_CLIENT || postgres}",
         "database": "${process.env.DATABASE_NAME || 'latam-cms'}",
-        "username": "${process.env.DATABASE_USERNAME || ''}",
-        "password": "${process.env.DATABASE_PASSWORD || ''}"
+        "username": "${process.env.DATABASE_USERNAME || 'admin'}",
+        "password": "${process.env.DATABASE_PASSWORD || 'admin123'}"
       },
       "options": {
         "authenticationDatabase": ""
